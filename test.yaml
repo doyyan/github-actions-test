@@ -1,0 +1,21 @@
+name: Ali
+age: 28
+key:
+    key: value
+    key2: 33
+    key3:
+        key2: value
+array:
+    - item1
+    - item1
+objectsArray:
+    - key: value
+      key2 : value2
+    - key: value
+      key3: value3
+longText: >
+     safd sadfj fdsasa fsadfsadfsdajsafd
+     sadfdsa 
+longTextWithNewLines: |
+     safd sadfj fdsasa fsadfsadfsdajsafd
+     sadfdsa 

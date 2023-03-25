@@ -10,6 +10,8 @@ jobs:
               run: |
                   pwd
                   ls
+            - name : Checkout
+              uses: actions/checkout@v1
 
             - name: Simlple JS Action
               id: greet

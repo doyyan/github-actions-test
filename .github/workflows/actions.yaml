@@ -19,6 +19,8 @@ jobs:
           echo $GITHUB_REPOSITORY
           echo $GITHUM_WORKSPACE
           echo "${{ github.token }}"
+      - name: payload
+        run: echo "${{ github.event. client_payload.env }}"
       - name: Checkout
         uses: actions/checkout@v1
       - name: List Files

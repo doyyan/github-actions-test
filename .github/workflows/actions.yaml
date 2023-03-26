@@ -8,8 +8,8 @@ on:
       - master
       - develop
       - "feature/*"
-    branches-ignore:
-      - "ravi*/"
+    # branches-ignore:
+    #   - "ravi*/"
   pull_request:
     types: [closed, assigned, opened, reopened]
 

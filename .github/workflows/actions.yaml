@@ -1,30 +1,32 @@
 name: Actions Workflow
 
-on: [push, pull_request]
+on:
+  push:
+  pull_request:
+    types: [closed, assigned, opened, reopened]
 
-jobs: 
-    run-github-actions: 
-        runs-on: ubuntu-latest
-        steps:
-            - name : List Files
-              run: |
-                  pwd
-                  ls
-                  echo $GITHUB_SHA
-                  echo $GITHUB_REPOSITORY
-                  echo $GITHUM_WORKSPACE
-                  echo "${{ github.token }}"
-            - name : Checkout
-              uses: actions/checkout@v1
-            - name : List Files
-              run: |
-                  pwd
-                  ls
-            - name: Simlple JS Action
-              id: greet
-              uses: actions/hello-world-javascript-action@v1.1
-              with: 
-                  who-to-greet: 'Ravi from Edinburgh'
-            - name: Log Greeting Time
-              run: echo "${{ steps.greet.outputs.time }}"
-              
+jobs:
+  run-github-actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: List Files
+        run: |
+          pwd
+          ls
+          echo $GITHUB_SHA
+          echo $GITHUB_REPOSITORY
+          echo $GITHUM_WORKSPACE
+          echo "${{ github.token }}"
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: List Files
+        run: |
+          pwd
+          ls
+      - name: Simlple JS Action
+        id: greet
+        uses: actions/hello-world-javascript-action@v1.1
+        with:
+          who-to-greet: "Ravi from Edinburgh"
+      - name: Log Greeting Time
+        run: echo "${{ steps.greet.outputs.time }}"

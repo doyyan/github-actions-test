@@ -2,8 +2,14 @@ name: Actions Workflow
 
 on:
   repository_dispatch:
-      types: [build2]
+    types: [build2]
   push:
+    branches:
+      - master
+      - develop
+      - "feature/*"
+    branches-ignore:
+      - "ravi*/"
   pull_request:
     types: [closed, assigned, opened, reopened]
 
@@ -20,7 +26,7 @@ jobs:
           echo $GITHUM_WORKSPACE
           echo "${{ github.token }}"
       - name: payload
-        run: echo "${{ github.event. client_payload.env }}"
+        run: echo "${{ github.event.client_payload.env }}"
       - name: Checkout
         uses: actions/checkout@v1
       - name: List Files

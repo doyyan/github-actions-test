@@ -27,3 +27,4 @@ jobs:
                   who-to-greet: 'Ravi from Edinburgh'
             - name: Log Greeting Time
               run: echo "${{ steps.greet.outputs.time }}"
+              

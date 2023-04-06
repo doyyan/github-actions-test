@@ -25,7 +25,14 @@ jobs:
         run: echo '${{ toJSON(steps) }}'
       - name: Dump runner context
         run: echo '${{ toJSON(runner) }}'
-      - name: Dump strategy context
+      - name: Dump strategy context∏∏
         run: echo '${{ toJSON(strategy) }}'
       - name: Dump matrix context
         run: echo '${{ toJSON(matrix) }}'
+      - name: Erroneous echo
+        run: 
+          eccho " bad echo"
+      - name: Previous step Failed
+        if: failure()
+        run: 
+          echo "Previous step failed!"

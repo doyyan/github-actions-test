@@ -21,4 +21,20 @@ jobs:
               with:
                     entrypoint: /usr/bin/local/bin/node
                     args: -v
+    node-docker-services:
+        runs-on: ubuntu-latest
+        services: 
+            app: 
+                image: alialaa17/node-api
+                ports:
+                    - 3001:3000
+            mongo:
+                image: mongo
+                ports:
+                    - "27017:27017"
+        steps:
+            - name: Log node version
+              run: |
+                  node -v
+
     

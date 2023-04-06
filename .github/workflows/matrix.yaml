@@ -12,4 +12,18 @@ jobs:
                   node-version: 6
             - name: Log node version
               run: node -v
+    matrix-node-version:
+        strategy: 
+            matrix: 
+                os: [macos-latest, ubuntu-latest]
+                node_version: [6, 8, 10]
+        runs-on: ubuntu-lates
+        steps:
+            - name: Log node version
+              run: node -v
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: 6
+            - name: Log node version
+              run: node -v
             
